@@ -1,2 +1,2 @@
-data/clean/*
-data/raw/*
+data/clean/.gitignore
+data/raw/.gitignore
