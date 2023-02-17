@@ -1,2 +1,3 @@
 data/clean/.gitignore
 data/raw/.gitignore
+.Rproj.user
