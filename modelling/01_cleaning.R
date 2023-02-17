@@ -12,7 +12,7 @@ rm_participants_fitness <- c("P011", "P016", "P024", "P027", "P029", "P031", "P0
 data_fitness <- data_raw[! data_raw[,"p_number"] %in% rm_participants_fitness,]
 
 # Save data 
-save(data_fitness, file = "data/clean/data_fitness.R")
+save(data_fitness, file = "data/clean/data_fitness.Rdata")
 
 # Data to be analysed in strength models  ---------------------------------
 
@@ -23,5 +23,5 @@ rm_participants_strength <- c("P011", "P016", "P024", "P027", "P029", "P031", "P
 data_strength <- data_raw[! data_raw[,"p_number"] %in% rm_participants_strength,]
 
 # Save data 
-save(data_strength, file = "data/clean/data_strength.R")
+save(data_strength, file = "data/clean/data_strength.Rdata")
 
