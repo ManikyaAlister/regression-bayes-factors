@@ -19,7 +19,7 @@ null_model <- function(outcome, data) {
 #  Predictor 2: fitness ---------------------------------------------------
 
 # load fitness data
-load(here("data/clean/data_fitness.R"))
+load(here("data/clean/data_fitness.Rdata"))
 
 # Affective TOM (af = affect & fitness) 
 ## data: Remove participants who are missing for the predictor so null and alternate 
@@ -69,3 +69,42 @@ m_cof <- lm(control ~ age + sex + education + cardio, data = data_fitness)
 R2_cof <- R2_change(m_cof, m0_cof) # 0.00
 ## Bayes Factor
 bf_cof <- bf_models(m0_cof,m_cof)
+
+# New outcomes as per reviewer comments (May 11th 2023)
+
+# Trail A 
+data_trA <- data_fitness[!data_fitness[,"trail_A"] %in% NA,]
+##  Null model
+m0_trA <- null_model("trail_A", data_trA)
+## Alt. model
+m_trA <- lm(trail_A ~ age + sex + education + cardio, data = data_fitness)
+## R2 change (original = 0.00)
+R2_trA <- R2_change(m_trA, m0_trA) # 0.01
+## Bayes Factor
+bf_trA <- bf_models(m0_trA,m_trA)
+
+
+# Trail B 
+data_trB <- data_fitness[!data_fitness[,"trail_B"] %in% NA,]
+##  Null model
+m0_trB <- null_model("trail_B", data_trB)
+## Alt. model
+m_trB <- lm(trail_B ~ age + sex + education + cardio, data = data_fitness)
+## R2 change (original = 0.00)
+R2_trB <- R2_change(m_trB, m0_trB) # 0.01
+## Bayes Factor
+bf_trB <- bf_models(m0_trB,m_trB)
+
+
+# Digit Symbol
+data_ds <- data_fitness[!data_fitness[,"digit_symbol"] %in% NA,]
+##  Null model
+m0_ds <- null_model("digit_symbol", data_ds)
+## Alt. model
+m_ds <- lm(digit_symbol ~ age + sex + education + cardio, data = data_fitness)
+## R2 change (original = 0.00)
+R2_ds <- R2_change(m_ds, m0_ds) # 0.00
+## Bayes Factor
+bf_ds <- bf_models(m0_ds,m_ds)
+
+

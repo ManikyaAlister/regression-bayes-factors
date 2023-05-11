@@ -1,7 +1,9 @@
 rm(list = ls())
 
+### Updated May 11th with extra cognition variables (trail A, B) ###
+
 # load data 
-data_raw <- read.csv("data/raw/Fitness and social cognition data.csv")
+data_raw <- read.csv("data/raw/Fitness and social cognition data_May 3rd.csv")
 
 # Data to be analysed in fitness models  ----------------------------------
 

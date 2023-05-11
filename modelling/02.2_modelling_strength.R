@@ -19,7 +19,7 @@ null_model = function(outcome, data) {
 # Predictor 1: strength ---------------------------------------------------
 
 ##load strength data 
-load(here("data/clean/data_strength.R"))
+load(here("data/clean/data_strength.Rdata"))
 
 # Affective TOM (as = affect & strength) 
 ## Data 
@@ -68,4 +68,42 @@ m_cos <- lm(control ~ age + sex + education + strength, data = data_cos)
 R2_cos <- R2_change(m_cos, m0_cos) # 0.00
 ## Bayes Factor
 bf_cos <- bf_models(m0_cos,m_cos)
+
+# New outcomes as per reviewer comments (May 11th 2023)
+
+# Trail A 
+data_trA <- data_strength[!data_strength[,"trail_A"] %in% NA,]
+##  Null model
+m0_trA <- null_model("trail_A", data_trA)
+## Alt. model
+m_trA <- lm(trail_A ~ age + sex + education + strength, data = data_strength)
+## R2 change (original = 0.00)
+R2_trA <- R2_change(m_trA, m0_trA) # 0.00
+## Bayes Factor
+bf_trA <- bf_models(m0_trA,m_trA)
+
+
+# Trail B 
+data_trB <- data_strength[!data_strength[,"trail_B"] %in% NA,]
+##  Null model
+m0_trB <- null_model("trail_B", data_trB)
+## Alt. model
+m_trB <- lm(trail_B ~ age + sex + education + strength, data = data_strength)
+## R2 change (original = 0.00)
+R2_trB <- R2_change(m_trB, m0_trB) # 0.08
+## Bayes Factor
+bf_trB <- bf_models(m0_trB,m_trB)
+
+
+# Digit Symbol
+data_ds <- data_strength[!data_strength[,"digit_symbol"] %in% NA,]
+##  Null model
+m0_ds <- null_model("digit_symbol", data_ds)
+## Alt. model
+m_ds <- lm(digit_symbol ~ age + sex + education + strength, data = data_strength)
+## R2 change (original = 0.00)
+R2_ds <- R2_change(m_ds, m0_ds) # 0.07
+## Bayes Factor
+bf_ds <- bf_models(m0_ds,m_ds)
+
 
