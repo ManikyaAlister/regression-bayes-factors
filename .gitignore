@@ -1,6 +1,14 @@
 #data/clean/.gitignore
 #data/raw/.gitignore
 
+# DS store
+.DS_Store
+data/.DS_Store
+renv/.DS_Store
+
+# R profile
+.Rprofile
+
 # History files
 .Rhistory
 .Rapp.history
